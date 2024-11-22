@@ -1,0 +1,26 @@
+{{ define "login" -}}
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+<div class="users">
+	{{ range $user := .users }}
+		<div class="user">
+			<ul>
+				<li> ID: <em>{{ $user.Subject }}</em>  </li>
+				<li> Name: <em>{{ $user.GivenName }}</em>  </li>
+				<li> Email: <em>{{ $user.Email }}</em>  </li>
+			</ul>
+			<a href="{{ $.base }}/{{$user.Subject}}?authRequestID={{$.authId}}">Select</a>
+		</div>
+	{{ end }}
+</div>
+
+</body>
+
+</html>
+
+{{- end }}
